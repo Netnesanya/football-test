@@ -1,0 +1,5 @@
+export const SOME_ROUTE = '/somepath'
+export const SOME_ROUTE = '/somepath'
+export const SOME_ROUTE = '/somepath'
+export const SOME_ROUTE = '/somepath'
+export const SOME_ROUTE = '/somepath'
