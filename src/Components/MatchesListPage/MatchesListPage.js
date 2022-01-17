@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TournamentsPage = () => {
+const MatchesListPage = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const TournamentsPage = () => {
     );
 };
 
-export default TournamentsPage;
+export default MatchesListPage;

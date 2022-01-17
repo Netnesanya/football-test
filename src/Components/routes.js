@@ -3,11 +3,11 @@ import {
     MAIN_PAGE_ROUTE,
     SOME_ROUTE,
     TEAMS_LIST_PAGE_ROUTE,
-    TOURNAMENTS_PAGE_ROUTE
+    COMPETITIONS_LIST_PAGE_ROUTE
 } from "../utilities/consts";
 import MainPage from "./MainPage/MainPage";
-import TournamentsPage from "./TournamentsPage/TournamentsPage";
-import EventsPage from "./EventsPage/EventsPage";
+import MatchesListPage from "./MatchesListPage/MatchesListPage";
+import CompetitionsListPage from "./CompetitionsListPage/CompetitionsListPage";
 import TeamsListPage from "./TeamsListPage/TeamsListPage";
 
 export const publicRoutes = [
@@ -15,13 +15,13 @@ export const publicRoutes = [
         path: MAIN_PAGE_ROUTE,
         Component: MainPage
     },
+    // {
+    //     path: TEAM_MATCHES_LIST_PAGE,
+    //     Component: MatchesListPage
+    // },
     {
-        path: TOURNAMENTS_PAGE_ROUTE,
-        Component: TournamentsPage
-    },
-    {
-        path: EVENTS_PAGE_ROUTE,
-        Component: EventsPage
+        path: COMPETITIONS_LIST_PAGE_ROUTE,
+        Component: CompetitionsListPage
     },
     {
         path: TEAMS_LIST_PAGE_ROUTE,
