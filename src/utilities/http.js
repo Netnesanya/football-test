@@ -1,4 +1,5 @@
 import * as axios from "axios";
+import {useState} from "react";
 
 const instance = axios.create({
 
@@ -10,13 +11,8 @@ export const competitionsAPI = {
     competitionsList() {
         return instance.get(`/competitions/`)
             .then(response => {
-                    console.log(response.data)
-                response.data = JSON.parse(response.data)
-                debugger
-                    return response.data
-                }
-            )
-
+                return response.data})
+            .catch(err=> console.log(err))
     },
     competitionsSearch(areas, plan) {
         return instance.get(`/competitions?areas=${areas}&plan=${plan}`,

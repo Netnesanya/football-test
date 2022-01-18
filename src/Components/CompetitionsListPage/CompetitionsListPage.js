@@ -1,24 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React  from 'react';
 import {competitionsAPI} from "../../utilities/http";
 import Competition from "./Competition";
-import * as axios from "axios";
-import APIdata from "../../testingjson/download.json";
+import comp from './CompetitionsListPage.module.css'
+
+
 
 
 
 const CompetitionsListPage = (props) => {
-    competitionsAPI.competitionsList()
-    let state = {
-        data:[]
-    }
 
-    state.data = competitionsAPI.competitionsList()
-    console.log(state.data)
 
-    let comps = state.data.map(comp => (<Competition key={comp.id} id={comp.id} name={comp.name} areaa={comp.area.name} />))
+    let competitionElements = props.competitions.map((comp, index) => (
+        <Competition id={comp.id} area={comp.area.name} code={comp.code} plan={comp.plan} name={comp.name} key={index}/>
+))
     return (
-        <div>
-            {comps}
+        <div className={comp.wrapper}>
+            {competitionElements}
         </div>
     )
 

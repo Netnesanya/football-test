@@ -1,31 +1,26 @@
 import './App.css';
-import AppRouter from "./Components/AppRouter";
-import {BrowserRouter} from "react-router-dom";
-// import {competitionsAPI} from "./utilities/http";
-import APIdata from './testingjson/download.json'
 import MainPage from "./Components/MainPage/MainPage";
-import CompetitionsListPage from "./Components/CompetitionsListPage/CompetitionsListPage";
-import Competition from "./Components/CompetitionsListPage/Competition";
-
-
-
-
-
+import {Routes, Route, Link} from "react-router-dom";
+import CompetitionsListPageContainer from "./Components/CompetitionsListPage/CompetitionsListPageContainer";
+import MatchesListPage from "./Components/MatchesListPage/MatchesListPage";
+import TeamsListPage from "./Components/TeamsListPage/TeamsListPage";
+import Navbar from "./Components/Navbar/Navbar";
+import NotFound404 from "./Components/NotFound404";
 
 
 function App() {
 
-
   return (
-    <BrowserRouter>
-    <div>
-
-      {/*{comps}*/}
-      {/*<MainPage />*/}
-      <CompetitionsListPage/>
-    </div>
-      {/*<AppRouter />*/}
-    </BrowserRouter>
+<div>
+    <header> <Navbar/></header>
+        <Routes>
+        <Route path="/" element={<MainPage/>}/>
+        <Route path="/competitions" element={<CompetitionsListPageContainer/>}/>
+        <Route path="/matches" element={<MatchesListPage/>}/>
+        <Route path="/teams" element={<TeamsListPage/>}/>
+        <Route path="/*" element={<NotFound404/>}/>
+        </Routes>
+</div>
   );
 }
 

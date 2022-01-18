@@ -1,0 +1,20 @@
+
+.nav {
+    grid-area: n;
+    background-color:rgb(34, 35, 36);
+    padding: 20px;
+  }
+
+.navbar_item {
+    color: rgb(202, 201, 201)
+}
+
+.navbar_item a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar_item a.active {
+    color: rgb(231, 182, 190);
+}
+
