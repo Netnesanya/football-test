@@ -6,13 +6,15 @@ import MatchesListPage from "./Components/MatchesListPage/MatchesListPage";
 import TeamsListPage from "./Components/TeamsListPage/TeamsListPage";
 import Navbar from "./Components/Navbar/Navbar";
 import NotFound404 from "./Components/NotFound404";
+import MenuHeader from "./Components/Menu/MenuHeader";
 
 
 function App() {
 
   return (
 <div>
-    <header> <Navbar/></header>
+    <header> <MenuHeader/></header>
+    {/*<header> <Navbar/></header>*/}
         <Routes>
         <Route path="/" element={<MainPage/>}/>
         <Route path="/competitions" element={<CompetitionsListPageContainer/>}/>
