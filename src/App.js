@@ -7,6 +7,7 @@ import TeamsListPage from "./Components/TeamsListPage/TeamsListPage";
 import Navbar from "./Components/Navbar/Navbar";
 import NotFound404 from "./Components/NotFound404";
 import MenuHeader from "./Components/Menu/MenuHeader";
+import {Container} from "@mui/material";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   return (
 <div>
     <header> <MenuHeader/></header>
+    <Container sx={{mt: 9}}>
     {/*<header> <Navbar/></header>*/}
         <Routes>
         <Route path="/" element={<MainPage/>}/>
@@ -22,6 +24,7 @@ function App() {
         <Route path="/teams" element={<TeamsListPage/>}/>
         <Route path="/*" element={<NotFound404/>}/>
         </Routes>
+    </Container>
 </div>
   );
 }

@@ -6,18 +6,18 @@ import React  from 'react';
 const Navbar = () => {
    return (
    <nav className = {n.nav}>
-    <div className ={n.navbar_item } class="navlink">
+    <span className ={n.navbar_item } class="navlink">
       <NavLink to= "/competitions" >Competitions</NavLink>
-    </div>
-    <div className ={n.navbar_item} class="navlink" >
+    </span>
+    <span className ={n.navbar_item} class="navlink" >
       <NavLink to= "/teams" >Teams</NavLink>
-    </div>
-       <div className={n.navbar_item} class="navlink">
+    </span>
+       <span className={n.navbar_item} class="navlink">
            <NavLink to="/areas">Areas</NavLink>
-       </div>
-    <div className ={n.navbar_item} class="navlink">
+       </span>
+    <span className ={n.navbar_item} class="navlink">
       <NavLink to= "/players">Players</NavLink>
-    </div>
+    </span>
     {/*<div className ={n.navbar_item} class ='navlink'>*/}
     {/*  <NavLink to= "/music">Music</NavLink>*/}
     {/*</div>*/}
