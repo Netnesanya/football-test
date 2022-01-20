@@ -4,13 +4,21 @@ import {useState} from "react";
 const instance = axios.create({
 
     baseURL: `https://api.football-data.org/v2/`,
-    headers: {'X-Auth-Token': process.env.REACT_APP_API_KEY, "Content-Type": "application/json, text/plain, */*"}
+    headers: {'X-Auth-Token': process.env.REACT_APP_API_KEY, "Content-Type": "application/json, text/plain, */*, charset=UTF-8"}
 })
 
 export const competitionsAPI = {
     competitionsList() {
         return instance.get(`/competitions/`)
             .then(response => {
+                return response.data})
+            .catch(err=> console.log(err))
+    },
+    getCompetition(compId) {
+        debugger
+        return instance.get(`/competitions/${compId}`)
+            .then(response => {
+                debugger
                 return response.data})
             .catch(err=> console.log(err))
     },
@@ -30,7 +38,11 @@ export const competitionsAPI = {
 
 
 export const teamsAPI = {
-    teamsList(id) {
+    teamsList() {
+return instance.get(`/teams/`)
+    .then(response => {
+        return response.data
+    })
 
     }
 }

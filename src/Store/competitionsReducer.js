@@ -2,13 +2,14 @@ import {competitionsAPI} from "../utilities/http";
 
 const GET_COMP_LIST = 'GET_COMP_LIST'
 const GET_COMP_COUNT = 'GET_COMP_COUNT'
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
+const SET_CURRENT_COMPETITION_PAGE = 'SET_CURRENT_COMPETITION_PAGE'
 const SET_COMPETITIONS = 'SET_COMPETITIONS'
 
 let initialState = {
+    currentCompetition : null,
     "currentPage": 1,
     "pageSize": 10,
-    "count": 30,
+    "count": 10,
     "filters": {},
     "competitions": [
         {
@@ -234,37 +235,61 @@ let initialState = {
 }
 
 export const competitionsReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         default:
             return state;
-        // case GET_COMP_LIST:
-        //     return {
-        //         ...state, competitions: [...state.competitions]
-        //     }
+        case SET_CURRENT_COMPETITION_PAGE:
+            return {
+                ...state, currentCompetition: action.compId
+            }
         case GET_COMP_COUNT:
             return {
                 ...state, count: action.count
             }
         case SET_COMPETITIONS:
             return {
-                ...state, competitions: [...action.competitions]
+                ...state, competitions: action.competitions
             }
     }
-
 }
 
 export let setTotalCompetitionsCount = (count) => ({type: GET_COMP_COUNT, count})
-export let setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+export let setCurrentCompetitionPage = (compId) => ({type: SET_CURRENT_COMPETITION_PAGE, compId})
 export let setCompetitions = (competitions) => ({type: SET_COMPETITIONS, competitions});
 
+export let getCurrentCompetitionThunkCreator = (compId) => {
+    return(dispatch) => {
+        competitionsAPI.getCompetition(compId)
+            .then(response => {
+                debugger
+                console.log(response.data)
+                dispatch(setCurrentCompetitionPage(response.data))
+            })
+
+
+}}
+
 export let getCompetitionsListThunkCreator = () => {
-   return (dispatch) => {
-        competitionsAPI.competitionsList(dispatch)
+
+    return (dispatch) => {
+        competitionsAPI.competitionsList()
             .then(response => {
                 dispatch(setTotalCompetitionsCount(response.count))
                 dispatch(setCompetitions(response.competitions))
-                 })
 
-
+            })
     }
+}
+
+export const getCompetitions = (state) => {
+    return state.competitionsList.competitions
+}
+export const getPageSize = (state) => {
+    return state.competitionsList.pageSize
+}
+export const getCount = (state) => {
+    return state.competitionsList.count
+}
+export const getCurrentCompetition = (state) => {
+    return state.competitionsList.currentCompetition
 }

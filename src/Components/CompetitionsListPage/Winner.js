@@ -3,8 +3,7 @@ import React from 'react';
 const Winner = (props) => {
 
      let  name = ''
-
-    if (props.winner === "TBD") {
+    if (!props.winner) {
         name = "TBD"
         return(
             <div>

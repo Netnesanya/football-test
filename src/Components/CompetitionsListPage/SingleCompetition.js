@@ -1,9 +1,6 @@
 import React from 'react';
 
-const TeamsListPage = (props) => {
-    debugger
-
-
+const SingleCompetition = () => {
     return (
         <div>
             
@@ -11,4 +8,4 @@ const TeamsListPage = (props) => {
     );
 };
 
-export default TeamsListPage;
+export default SingleCompetition;

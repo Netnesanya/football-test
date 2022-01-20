@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from "../Navbar/Navbar";
-import CompetitionsListPageContainer from "../CompetitionsListPage/CompetitionsListPageContainer";
+
 import {Routes, Redirect, Route} from "react-router-dom";
 
 
