@@ -4,6 +4,7 @@ const Winner = (props) => {
 
      let  name = ''
     if (!props.winner) {
+        console.log('winner is not here')
         name = "TBD"
         return(
             <div>

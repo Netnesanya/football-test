@@ -261,9 +261,7 @@ export let getCurrentCompetitionThunkCreator = (compId) => {
     return(dispatch) => {
         competitionsAPI.getCompetition(compId)
             .then(response => {
-                debugger
-                console.log(response.data)
-                dispatch(setCurrentCompetitionPage(response.data))
+                dispatch(setCurrentCompetitionPage(response.id))
             })
 
 

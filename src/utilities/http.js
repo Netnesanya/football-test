@@ -1,5 +1,4 @@
 import * as axios from "axios";
-import {useState} from "react";
 
 const instance = axios.create({
 
@@ -41,7 +40,9 @@ export const teamsAPI = {
     teamsList() {
 return instance.get(`/teams/`)
     .then(response => {
-        return response.data
+        console.log(response.data.teams)
+        return response.data.teams
+
     })
 
     }

@@ -3,7 +3,10 @@ import {teamsAPI} from "../utilities/http";
 const GET_TEAMS = "GET_TEAMS"
 
 const initialState= {
-    teams: {}
+    teams: {},
+    pageSize: null,
+    currentTeam: null,
+    count: null
 }
 
 
@@ -30,3 +33,17 @@ export const getTeamsThunkCreator = () => {
     }
 }
 
+export const getTeams = (state) => {
+    return state.teamsList.teams
+}
+
+export const getCount = (state) => {
+    return state.teamsList.count
+}
+export const getPageSize = (state) => {
+    return state.teamsList.pageSize
+}
+
+export const getCurrentTeam = (state) => {
+    return state.teamsList.currentTeam
+}
